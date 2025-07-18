@@ -1,41 +1,32 @@
-import { evaluateGuess, EVALUATION_RESULT } from "../lib/gameLogic";
+import { evaluateMovieGuess } from "../lib/gameLogic";
+import { MovieGuessContainer } from "./MovieGuessContainer";
 
 /**
- * Renders the game grid with all rows (no current guess row)
+ * Renders the game grid with movie information for each guess
  */
 export const GameGrid = ({ guesses, solution, gameStatus }) => {
   const renderGrid = () => {
     const rows = [];
 
     // Render completed guesses
-    guesses.forEach((guess, rowIndex) => {
-      const evaluation = evaluateGuess(guess, solution);
+    guesses.forEach((guessMovie, rowIndex) => {
+      const evaluation = evaluateMovieGuess(guessMovie, solution);
       rows.push(
-        <div key={rowIndex} className="row">
-          {guess.split("").map((letter, colIndex) => (
-            <div
-              key={colIndex}
-              className={`tile tile-flip ${
-                evaluation[colIndex] === EVALUATION_RESULT.CORRECT
-                  ? "tile-correct"
-                  : evaluation[colIndex] === EVALUATION_RESULT.PRESENT
-                    ? "tile-present"
-                    : "tile-absent"
-              }`}
-              style={{
-                animationDelay: `${colIndex * 0.1}s`,
-              }}
-            >
-              {letter.toUpperCase()}
-            </div>
-          ))}
-        </div>,
+        <MovieGuessContainer
+          key={rowIndex}
+          movie={guessMovie}
+          evaluation={evaluation}
+          rowIndex={rowIndex}
+        />
       );
     });
 
-    // Only show completed guesses - no empty rows
     return rows;
   };
 
-  return <div className="grid-container">{renderGrid()}</div>;
+  return (
+    <div className="movie-grid-container">
+      {renderGrid()}
+    </div>
+  );
 };

@@ -25,11 +25,9 @@ export const GuessInput = ({ onSubmit, isPlaying, guesses }) => {
   }, [inputValue]);
 
   const handleInputChange = (e) => {
-    const value = e.target.value.toUpperCase();
-    if (value.length <= 5 && /^[A-Za-z]*$/.test(value)) {
-      setInputValue(value);
-      setError("");
-    }
+    const value = e.target.value;
+    setInputValue(value);
+    setError("");
   };
 
   const handleKeyDown = (e) => {
@@ -61,11 +59,15 @@ export const GuessInput = ({ onSubmit, isPlaying, guesses }) => {
   };
 
   const selectSuggestion = (suggestion) => {
-    const guess = suggestion.toLowerCase();
+    const guess = suggestion;
 
     // Check if guess has already been made
-    if (guesses.includes(guess)) {
-      setError("You've already guessed that word!");
+    if (
+      guesses.some(
+        (guessMovie) => guessMovie.title.toLowerCase() === guess.toLowerCase(),
+      )
+    ) {
+      setError("You've already guessed that movie!");
       return;
     }
 
@@ -76,6 +78,8 @@ export const GuessInput = ({ onSubmit, isPlaying, guesses }) => {
       setError("");
       setSuggestions([]);
       setShowSuggestions(false);
+    } else {
+      setError("Invalid movie selection!");
     }
   };
 
@@ -83,6 +87,11 @@ export const GuessInput = ({ onSubmit, isPlaying, guesses }) => {
     <div className="guess-input-container">
       <div className="guess-form">
         <div className="input-group">
+          <div className="input-header">
+            <p className="input-hint guess-counter">
+              Guess {6 - guesses.length} of 6
+            </p>
+          </div>
           <div className="autocomplete-wrapper">
             <input
               ref={inputRef}
@@ -106,7 +115,7 @@ export const GuessInput = ({ onSubmit, isPlaying, guesses }) => {
                     }`}
                     onClick={() => selectSuggestion(suggestion)}
                   >
-                    {suggestion.toUpperCase()}
+                    {suggestion}
                   </div>
                 ))}
               </div>
@@ -115,8 +124,7 @@ export const GuessInput = ({ onSubmit, isPlaying, guesses }) => {
         </div>
         {error && <p className="error-message">{error}</p>}
         <p className="input-hint">
-          Click on a movie suggestion to make your guess • {6 - guesses.length}{" "}
-          guesses remaining
+          Click on a movie suggestion to make your guess.
         </p>
       </div>
     </div>

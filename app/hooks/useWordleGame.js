@@ -1,12 +1,13 @@
-// Custom hook for managing game state and input-based gameplay
+// Custom hook for managing game state and movie-based gameplay
 
 import { useEffect, useState, useCallback } from "react";
-import { getRandomWord } from "../lib/wordList";
+import { getRandomMovie, movieList } from "../lib/movieList";
 import {
   createInitialState,
   GAME_STATUS,
   getGameStatus,
-  isValidGuess,
+  isValidMovieGuess,
+  findMovieByTitle,
 } from "../lib/gameLogic";
 
 /**
@@ -14,16 +15,21 @@ import {
  */
 export const useWordleGame = () => {
   const [gameState, setGameState] = useState(() =>
-    createInitialState(getRandomWord()),
+    createInitialState(getRandomMovie()),
   );
 
   const restartGame = useCallback(() => {
-    setGameState(createInitialState(getRandomWord()));
+    setGameState(createInitialState(getRandomMovie()));
   }, []);
 
-  const submitGuess = useCallback((guess) => {
-    if (!isValidGuess(guess)) {
+  const submitGuess = useCallback((movieTitle) => {
+    if (!isValidMovieGuess(movieTitle, movieList)) {
       return false; // Invalid guess
+    }
+
+    const guessMovie = findMovieByTitle(movieTitle, movieList);
+    if (!guessMovie) {
+      return false; // Movie not found
     }
 
     setGameState((currentState) => {
@@ -31,11 +37,11 @@ export const useWordleGame = () => {
         return currentState;
       }
 
-      const newGuesses = [...currentState.guesses, guess.toLowerCase()];
+      const newGuesses = [...currentState.guesses, guessMovie];
       const newGameStatus = getGameStatus(
-        guess.toLowerCase(),
+        guessMovie,
         currentState.solution,
-        newGuesses.length
+        newGuesses.length,
       );
 
       return {

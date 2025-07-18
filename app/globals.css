@@ -93,9 +93,22 @@ body {
   gap: 0.5rem;
 }
 
+/* Mobile responsiveness for containers */
+@media (max-width: 768px) {
+  .guess-input-container {
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .guess-form {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 .input-group {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -107,7 +120,7 @@ body {
   padding: 0.75rem 1rem;
   font-size: 1.125rem;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
   border: 2px solid #d1d5db;
   border-radius: 8px;
   background-color: white;
@@ -115,6 +128,39 @@ body {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: all 0.2s ease;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .input-group {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .input-header {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .autocomplete-wrapper {
+    width: 100%;
+  }
+  
+  .guess-input {
+    width: 100%;
+    min-width: unset;
+    font-size: 1rem;
+    padding: 0.875rem 1rem;
+  }
+  
+  .suggestions-dropdown {
+    width: 100%;
+    max-height: 150px;
+  }
+  
+  .guess-counter {
+    font-size: 0.875rem;
+  }
 }
 
 .suggestions-dropdown {
@@ -204,6 +250,19 @@ body {
   font-size: 0.875rem;
   margin: 0;
   text-align: center;
+}
+
+.input-header {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.guess-counter {
+  text-align: right;
+  font-weight: 500;
+  color: #374151;
 }
 
 /* Grid styling */
@@ -435,4 +494,260 @@ body {
   color: #2563eb;
   font-size: 0.75rem;
   margin-top: 0.25rem;
+}
+
+/* Movie Grid Styling */
+.movie-grid-container {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.movie-header-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.movie-header-tile {
+  flex: 1;
+  min-width: 100px;
+  height: 40px;
+  background-color: #f3f4f6;
+  border: 2px solid #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  color: #374151;
+}
+
+.movie-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.movie-tile {
+  flex: 1;
+  min-width: 100px;
+  min-height: 60px;
+  border: 2px solid #d1d5db;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: flip 0.6s ease-in-out;
+}
+
+.tile-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+
+.tile-value {
+  font-size: 0.875rem;
+  font-weight: bold;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.tile-value-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.direction-arrow {
+  font-size: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  animation: pulse 1.5s infinite;
+}
+
+.direction-arrow.up {
+  color: #ffffff;
+}
+
+.direction-arrow.down {
+  color: #ffffff;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.tile-correct {
+  background-color: #10b981;
+  border-color: #10b981;
+  color: white;
+}
+
+.tile-close {
+  background-color: #f59e0b;
+  border-color: #f59e0b;
+  color: white;
+}
+
+.tile-incorrect {
+  background-color: #ef4444;
+  border-color: #ef4444;
+  color: white;
+}
+
+/* Solution details styling */
+.solution-details {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  text-align: left;
+}
+
+.solution-details p {
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.solution-details p:last-child {
+  margin-bottom: 0;
+}
+
+/* New two-row layout for movie guess */
+.movie-guess-container {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #f9fafb;
+}
+
+/* Card header styles */
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.card-image {
+  margin-right: 1rem;
+}
+
+.movie-poster-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poster-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border: 2px solid #ddd;
+}
+
+.card-title {
+  flex: 1;
+}
+
+.card-name h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.card-body {
+  padding: 0 1rem;
+}
+
+.movie-guess-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.movie-guess-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #374151;
+  margin-right: 0.5rem;
+}
+
+.movie-guess-value {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #1f2937;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+/* Responsive design for movie grid */
+@media (max-width: 768px) {
+  .movie-header-row,
+  .movie-row {
+    flex-direction: row;
+    max-width: 100%;
+    overflow-x: auto;
+    gap: 4px;
+  }
+
+  .movie-header-tile,
+  .movie-tile {
+    min-width: 80px;
+    flex-shrink: 0;
+    margin-bottom: 4px;
+    font-size: 0.75rem;
+  }
+
+  .movie-tile {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 0.25rem;
+  }
+
+  .tile-label {
+    margin-bottom: 0.25rem;
+    font-size: 0.65rem;
+  }
+
+  .game-board {
+    max-width: 100%;
+    padding: 1rem;
+  }
 }
