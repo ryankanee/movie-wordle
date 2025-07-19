@@ -8,18 +8,22 @@ export const GameGrid = ({ guesses, solution, gameStatus }) => {
   const renderGrid = () => {
     const rows = [];
 
-    // Render completed guesses
-    guesses.forEach((guessMovie, rowIndex) => {
-      const evaluation = evaluateMovieGuess(guessMovie, solution);
-      rows.push(
-        <MovieGuessContainer
-          key={rowIndex}
-          movie={guessMovie}
-          evaluation={evaluation}
-          rowIndex={rowIndex}
-        />
-      );
-    });
+    // Render completed guesses in reverse order (most recent first)
+    guesses
+      .slice()
+      .reverse()
+      .forEach((guessMovie, reverseIndex) => {
+        const originalIndex = guesses.length - 1 - reverseIndex;
+        const evaluation = evaluateMovieGuess(guessMovie, solution);
+        rows.push(
+          <MovieGuessContainer
+            key={originalIndex}
+            movie={guessMovie}
+            evaluation={evaluation}
+            rowIndex={originalIndex}
+          />
+        );
+      });
 
     return rows;
   };

@@ -89,7 +89,7 @@ export const GuessInput = ({ onSubmit, isPlaying, guesses }) => {
         <div className="input-group">
           <div className="input-header">
             <p className="input-hint guess-counter">
-              Guess {6 - guesses.length} of 6
+              Guess {guesses.length + 1} of 6
             </p>
           </div>
           <div className="autocomplete-wrapper">
