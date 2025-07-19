@@ -1,7 +1,7 @@
 // Custom hook for managing game state and movie-based gameplay
 
-import { useEffect, useState, useCallback } from "react";
-import { getRandomMovie, movieList } from "../lib/movieList";
+import { useState, useCallback } from "react";
+import { getRandomMovie, movies } from "../lib/movieList";
 import {
   createInitialState,
   GAME_STATUS,
@@ -18,7 +18,7 @@ export const useWordleGame = () => {
     createInitialState(getRandomMovie()),
   );
   const [showInstructions, setShowInstructions] = useState(true);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState("home");
 
   const restartGame = useCallback(() => {
     setGameState(createInitialState(getRandomMovie()));
@@ -34,19 +34,19 @@ export const useWordleGame = () => {
   }, []);
 
   const showHome = useCallback(() => {
-    setActiveSection('home');
+    setActiveSection("home");
   }, []);
 
   const showAbout = useCallback(() => {
-    setActiveSection('about');
+    setActiveSection("about");
   }, []);
 
   const submitGuess = useCallback((movieTitle) => {
-    if (!isValidMovieGuess(movieTitle, movieList)) {
+    if (!isValidMovieGuess(movieTitle, movies)) {
       return false; // Invalid guess
     }
 
-    const guessMovie = findMovieByTitle(movieTitle, movieList);
+    const guessMovie = findMovieByTitle(movieTitle, movies);
     if (!guessMovie) {
       return false; // Movie not found
     }
