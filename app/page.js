@@ -1,20 +1,15 @@
 "use client";
 
 import { useWordleGame } from "./hooks/useWordleGame";
-import {
-  Navbar,
-  Home,
-  About,
-  InstructionModal,
-} from "./components";
+import { Navbar, Home, About, InstructionModal } from "./components";
 
 export default function HomePage() {
-  const { 
-    solution, 
-    guesses, 
-    gameStatus, 
-    restartGame, 
-    submitGuess, 
+  const {
+    solution,
+    guesses,
+    gameStatus,
+    restartGame,
+    submitGuess,
     isPlaying,
     showInstructions,
     closeInstructions,
@@ -26,15 +21,15 @@ export default function HomePage() {
 
   return (
     <div className="app-container">
-      <Navbar 
+      <Navbar
         onShowHelp={showInstructionsOnDemand}
         onShowHome={showHome}
         onShowAbout={showAbout}
         activeSection={activeSection}
       />
-      
+
       <main className="main-content">
-        {activeSection === 'home' && (
+        {activeSection === "home" && (
           <Home
             solution={solution}
             guesses={guesses}
@@ -44,8 +39,8 @@ export default function HomePage() {
             isPlaying={isPlaying}
           />
         )}
-        
-        {activeSection === 'about' && <About />}
+
+        {activeSection === "about" && <About />}
       </main>
 
       <InstructionModal

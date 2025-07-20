@@ -1,6 +1,6 @@
 // Custom hook for managing game state and movie-based gameplay
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { getRandomMovie, movies } from "../lib/movieList";
 import {
   createInitialState,
@@ -9,6 +9,7 @@ import {
   isValidMovieGuess,
   findMovieByTitle,
 } from "../lib/gameLogic";
+import { useMoviePosters } from "./useMoviePosters";
 
 /**
  * Custom hook for managing Movie Wordle game state
@@ -19,6 +20,22 @@ export const useWordleGame = () => {
   );
   const [showInstructions, setShowInstructions] = useState(true);
   const [activeSection, setActiveSection] = useState("home");
+
+  // Movie poster management
+  const { getMoviePoster, getEnhancedMovie } = useMoviePosters();
+
+  // Fetch posters for guessed movies and solution
+  useEffect(() => {
+    // Fetch poster for solution movie
+    if (gameState.solution) {
+      getMoviePoster(gameState.solution);
+    }
+
+    // Fetch posters for all guessed movies
+    gameState.guesses.forEach((movie) => {
+      getMoviePoster(movie);
+    });
+  }, [gameState.solution, gameState.guesses, getMoviePoster]);
 
   const restartGame = useCallback(() => {
     setGameState(createInitialState(getRandomMovie()));
@@ -75,6 +92,8 @@ export const useWordleGame = () => {
 
   return {
     ...gameState,
+    solution: getEnhancedMovie(gameState.solution),
+    guesses: gameState.guesses.map((guess) => getEnhancedMovie(guess)),
     restartGame,
     submitGuess,
     isPlaying: gameState.gameStatus === GAME_STATUS.PLAYING,
