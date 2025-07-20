@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { formatGross } from "../lib/movieList";
 
 /**
@@ -63,8 +64,50 @@ export const GameOverlay = ({ gameStatus, solution, onRestart, guesses }) => {
           {/* Movie poster and title section */}
           <div className="card-header">
             <div className="card-image">
-              <div className="movie-poster-placeholder">
-                <div className="poster-circle">🎬</div>
+              {solution.posterUrl ? (
+                <Image
+                  src={solution.posterUrl}
+                  alt={`${solution.title} poster`}
+                  className="movie-poster"
+                  width={80}
+                  height={120}
+                  onError={(e) => {
+                    console.log(
+                      `Failed to load poster for ${solution.title}: ${solution.posterUrl}`,
+                    );
+                    // Show placeholder if image fails to load
+                    e.target.style.display = "none";
+                    const placeholder = e.target.nextElementSibling;
+                    if (placeholder) {
+                      placeholder.style.display = "flex";
+                      // Update placeholder with movie year
+                      const circle = placeholder.querySelector(".poster-circle");
+                      if (circle) {
+                        circle.innerHTML = `<div style="font-size: 12px; text-align: center; line-height: 1.1;"><div>🎬</div><div>${solution.year}</div></div>`;
+                      }
+                    }
+                  }}
+                  onLoad={() => {
+                    console.log(`Successfully loaded poster for ${solution.title}`);
+                  }}
+                />
+              ) : null}
+              <div
+                className="movie-poster-placeholder"
+                style={{ display: solution.posterUrl ? "none" : "flex" }}
+              >
+                <div className="poster-circle">
+                  <div
+                    style={{
+                      fontSize: "12px",
+                      textAlign: "center",
+                      lineHeight: "1.1",
+                    }}
+                  >
+                    <div>🎬</div>
+                    <div>{solution.year}</div>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="card-title">

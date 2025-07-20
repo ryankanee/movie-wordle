@@ -9,7 +9,7 @@ export const GameInstructions = ({ gameStatus }) => {
         <p>
           Start typing to see movie suggestions, then click to make your guess
         </p>
-        <p>Guess the movie title in 6 tries or fewer</p>
+        <p>Guess the movie title in 10 tries or fewer</p>
         <p>Each guess will show you movie information with color-coded hints</p>
       </div>
       <div className="legend">

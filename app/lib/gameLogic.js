@@ -134,7 +134,7 @@ export const getGameStatus = (
   guessMovie,
   solutionMovie,
   guessCount,
-  maxGuesses = 6,
+  maxGuesses = 10,
 ) => {
   if (guessMovie.title.toLowerCase() === solutionMovie.title.toLowerCase()) {
     return GAME_STATUS.WON;
