@@ -13,7 +13,7 @@ export const GameOverlay = ({ gameStatus, solution, onRestart, guesses }) => {
     if (gameStatus === "won" || gameStatus === "lost") {
       setShowOverlay(true);
       setAnimationPhase("entering");
-      
+
       // Add a small delay before showing the main content
       const timer = setTimeout(() => {
         setAnimationPhase("showing");
@@ -48,7 +48,8 @@ export const GameOverlay = ({ gameStatus, solution, onRestart, guesses }) => {
               <div className="celebration-icon">🎉</div>
               <h1 className="overlay-title">Congratulations!</h1>
               <p className="overlay-subtitle">
-                You guessed it in {guessCount} {guessCount === 1 ? "try" : "tries"}!
+                You guessed it in {guessCount}{" "}
+                {guessCount === 1 ? "try" : "tries"}!
               </p>
             </>
           ) : (
@@ -81,14 +82,17 @@ export const GameOverlay = ({ gameStatus, solution, onRestart, guesses }) => {
                     if (placeholder) {
                       placeholder.style.display = "flex";
                       // Update placeholder with movie year
-                      const circle = placeholder.querySelector(".poster-circle");
+                      const circle =
+                        placeholder.querySelector(".poster-circle");
                       if (circle) {
                         circle.innerHTML = `<div style="font-size: 12px; text-align: center; line-height: 1.1;"><div>🎬</div><div>${solution.year}</div></div>`;
                       }
                     }
                   }}
                   onLoad={() => {
-                    console.log(`Successfully loaded poster for ${solution.title}`);
+                    console.log(
+                      `Successfully loaded poster for ${solution.title}`,
+                    );
                   }}
                 />
               ) : null}
@@ -157,7 +161,9 @@ export const GameOverlay = ({ gameStatus, solution, onRestart, guesses }) => {
               <div className="movie-tile overlay-tile-correct">
                 <div className="tile-label">Gross</div>
                 <div className="tile-value-container">
-                  <div className="tile-value">{formatGross(solution.gross)}</div>
+                  <div className="tile-value">
+                    {formatGross(solution.gross)}
+                  </div>
                 </div>
               </div>
             </div>

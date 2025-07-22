@@ -100,7 +100,7 @@ export const movies = [
     "posterUrl": "https://image.tmdb.org/t/p/w500/rhr4y79GpxQF9IsfJItRXVaoGs4.jpg"
   },
   {
-    "title": "The Lion King",
+    "title": "The Lion King (2019)",
     "director": "Jon Favreau",
     "year": 2019,
     "genre": "Animation",
@@ -240,7 +240,7 @@ export const movies = [
     "posterUrl": "https://image.tmdb.org/t/p/w500/mbPrrbt8bSLcHSBCHnRclPlMZPl.jpg"
   },
   {
-    "title": "Beauty and the Beast",
+    "title": "Beauty and the Beast (2017)",
     "director": "Bill Condon",
     "year": 2017,
     "genre": "Musical",
@@ -460,7 +460,7 @@ export const movies = [
     "posterUrl": "https://image.tmdb.org/t/p/w500/i0yw1mFbB7sNGHCs7EXZPzFkdA1.jpg"
   },
   {
-    "title": "Aladdin",
+    "title": "Aladdin (2019)",
     "director": "Guy Ritchie",
     "year": 2019,
     "genre": "Musical",
@@ -580,14 +580,14 @@ export const movies = [
     "posterUrl": "https://image.tmdb.org/t/p/w500/Y6pjszkKQUZ5uBbiGg7KWiCksJ.jpg"
   },
   {
-    "title": "The Lion King",
-    "director": "Jon Favreau",
+    "title": "The Lion King (1994)",
+    "director": "Roger Allers",
     "year": 1994,
     "genre": "Animation",
     "gross": 979161373,
-    "oscars": 0,
-    "rating": "PG",
-    "posterUrl": "https://image.tmdb.org/t/p/w500/sKCr78MXSLixwmZ8DyJLrpMsd15.jpg"
+    "oscars": 2,
+    "rating": "G",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/bxidSVaBKTvQ3kj2k1d9dGSJnI5.jpg"
   },
   {
     "title": "Oppenheimer",
@@ -2130,7 +2130,7 @@ export const movies = [
     "posterUrl": "https://image.tmdb.org/t/p/w500/r2517Vz9EhDhj88qwbDVj8DCRZN.jpg"
   },
   {
-    "title": "How to Train Your Dragon",
+    "title": "How to Train Your Dragon (2025)",
     "director": "Dean DeBlois",
     "year": 2025,
     "genre": "Animation",
@@ -2460,7 +2460,7 @@ export const movies = [
     "posterUrl": "https://image.tmdb.org/t/p/w500/hbhFnRzzg6ZDmm8YAmxBnQpQIPh.jpg"
   },
   {
-    "title": "Godzilla",
+    "title": "Godzilla (2014)",
     "director": "Gareth Edwards",
     "year": 2014,
     "genre": "Action",
@@ -2550,14 +2550,14 @@ export const movies = [
     "posterUrl": "https://image.tmdb.org/t/p/w500/w9RaPHov8oM5cnzeE27isnFMsvS.jpg"
   },
   {
-    "title": "Aladdin",
-    "director": "Guy Ritchie",
-    "year": 2019,
+    "title": "Aladdin (1992)",
+    "director": "Ron Clements",
+    "year": 1992,
     "genre": "Musical",
     "gross": 504050219,
-    "oscars": 0,
+    "oscars": 2,
     "rating": "PG",
-    "posterUrl": "https://image.tmdb.org/t/p/w500/ykUEbfpkf8d0w49pHh0AD2KrT52.jpg"
+    "posterUrl": "https://image.tmdb.org/t/p/w500/kKB8tOO6s3fS4o8GC4WP8k4NlmE.jpg"
   },
   {
     "title": "Rio 2",
@@ -2600,7 +2600,7 @@ export const movies = [
     "posterUrl": "https://image.tmdb.org/t/p/w500/4Y1WNkd88JXmGfhtWR7dmDAo1T2.jpg"
   },
   {
-    "title": "How to Train Your Dragon",
+    "title": "How to Train Your Dragon (2010)",
     "director": "Dean DeBlois",
     "year": 2010,
     "genre": "Animation",
@@ -3090,14 +3090,14 @@ export const movies = [
     "posterUrl": "https://image.tmdb.org/t/p/w500/kKgQzkUCnQmeTPkyIwHly2t6ZFI.jpg"
   },
   {
-    "title": "Beauty and the Beast",
-    "director": "Bill Condon",
-    "year": 2017,
+    "title": "Beauty and the Beast (1991)",
+    "director": "Gary Trousdale",
+    "year": 1991,
     "genre": "Musical",
     "gross": 451291298,
-    "oscars": 0,
-    "rating": "PG",
-    "posterUrl": "https://image.tmdb.org/t/p/w500/hKegSKIDep2ewJWPUQD7u0KqFIp.jpg"
+    "oscars": 2,
+    "rating": "G",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/wKvpGz9HJnBcU6KbLNlPHn6bPmk.jpg"
   },
   {
     "title": "Dying to Survive",
@@ -3490,7 +3490,7 @@ export const movies = [
     "posterUrl": "https://image.tmdb.org/t/p/w500/qGuBwXcJhmFBQRu5F6EB2VoTCn2.jpg"
   },
   {
-    "title": "The Mummy",
+    "title": "The Mummy (1999)",
     "director": "Stephen Sommers",
     "year": 1999,
     "genre": "Adventure",
@@ -3620,7 +3620,7 @@ export const movies = [
     "posterUrl": "https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg"
   },
   {
-    "title": "The Mummy",
+    "title": "The Mummy (2017)",
     "director": "Alex Kurtzman",
     "year": 2017,
     "genre": "Action",
@@ -4120,7 +4120,7 @@ export const movies = [
     "posterUrl": "https://image.tmdb.org/t/p/w500/7JPpIjhD2V0sKyFvhB9khUMa30d.jpg"
   },
   {
-    "title": "Godzilla",
+    "title": "Godzilla (1998)",
     "director": "Roland Emmerich",
     "year": 1998,
     "genre": "Action",
